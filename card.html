@@ -18,71 +18,151 @@
   }
   input:focus { outline: none; }
   button { cursor: pointer; border: none; background: none; font-family: inherit; }
-  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: #1a1a20; }
   ::-webkit-scrollbar-thumb { background: #3a3a44; border-radius: 2px; }
 
+/* ── Header ── */
 .header {
 border-bottom: 1px solid #1e1e28;
-padding: 14px 24px;
+padding: 14px 20px;
 display: flex; align-items: center; justify-content: space-between;
 flex-shrink: 0;
 }
-.logo { display: flex; align-items: center; gap: 12px; }
+.logo { display: flex; align-items: center; gap: 10px; }
 .logo-icon {
-width: 32px; height: 32px; border-radius: 8px;
+width: 30px; height: 30px; border-radius: 8px;
 background: linear-gradient(135deg, #e8c97e, #c9a84c);
-display: flex; align-items: center; justify-content: center; font-size: 16px;
+display: flex; align-items: center; justify-content: center; font-size: 15px;
 }
-.logo-title { font-size: 16px; font-weight: 700; }
-.logo-sub { font-size: 10px; color: #555; letter-spacing: 1px; margin-top: 1px; }
+.logo-title { font-size: 15px; font-weight: 700; }
+.logo-sub { font-size: 9px; color: #555; letter-spacing: 1px; margin-top: 1px; }
 .tab-bar {
-display: flex; gap: 4px; background: #15151d;
+display: flex; gap: 3px; background: #15151d;
 padding: 3px; border-radius: 24px; border: 1px solid #1e1e28;
 }
-.tab-btn {
-padding: 6px 16px; border-radius: 20px;
-font-size: 12px; font-weight: 500; color: #888; transition: all 0.2s;
-}
+.tab-btn { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; color: #888; transition: all 0.2s; }
 .tab-btn.active { background: #e8c97e; color: #0f0f13; }
 .tab-btn:hover:not(.active) { color: #ccc; }
 
-.content { flex: 1; overflow-y: auto; padding: 16px 24px 20px; }
+/* ── Content ── */
+.content { flex: 1; overflow-y: auto; padding: 14px 16px 24px; }
 
-.month-nav {
-display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
-}
-.nav-center { display: flex; align-items: center; gap: 12px; }
+/* ── Month nav ── */
+.month-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.nav-center { display: flex; align-items: center; gap: 10px; }
 .nav-btn {
 width: 28px; height: 28px; border-radius: 50%;
 background: #1e1e28; color: #aaa;
 display: flex; align-items: center; justify-content: center;
-font-size: 16px; transition: all 0.15s;
+font-size: 16px; transition: all 0.15s; flex-shrink: 0;
 }
 .nav-btn:hover { background: #2a2a38; color: #e8c97e; }
 .month-label { font-size: 22px; font-weight: 700; color: #e8c97e; font-family: ‘DM Mono’, monospace; }
 .year-small { font-size: 11px; color: #555; margin-top: 1px; }
 .year-nav { display: flex; align-items: center; gap: 6px; }
-.year-label { font-family: ‘DM Mono’, monospace; font-size: 13px; color: #888; min-width: 44px; text-align: center; }
+.year-label { font-family: ‘DM Mono’, monospace; font-size: 13px; color: #888; min-width: 40px; text-align: center; }
 
-.summary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+/* ── Summary cards ── */
+.summary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
 .summary-card {
 background: linear-gradient(135deg, #1a1a24, #14141c);
-border: 1px solid #2a2a34; border-radius: 10px; padding: 12px 16px;
+border: 1px solid #2a2a34; border-radius: 10px; padding: 11px 14px;
 }
-.summary-label { font-size: 10px; letter-spacing: 1.5px; color: #555; text-transform: uppercase; margin-bottom: 3px; }
+.summary-label { font-size: 9px; letter-spacing: 1.5px; color: #555; text-transform: uppercase; margin-bottom: 3px; }
 .summary-amount { font-family: ‘DM Mono’, monospace; font-size: 20px; font-weight: 700; color: #e8c97e; }
 .summary-amount.invest { color: #5ba8e0; }
-.summary-sub { font-size: 11px; color: #444; margin-top: 3px; }
+.summary-sub { font-size: 10px; color: #3a3a48; margin-top: 2px; }
 
-.section-header { display: flex; align-items: center; gap: 8px; margin: 12px 0 7px; }
+/* ── Section header ── */
+.section-header { display: flex; align-items: center; gap: 7px; margin: 12px 0 8px; }
 .section-title { font-size: 10px; font-weight: 600; color: #555; letter-spacing: 1.8px; text-transform: uppercase; }
 
-.table-wrap {
-background: #14141c; border: 1px solid #1e1e28;
-border-radius: 12px; overflow: hidden; margin-bottom: 10px;
+/* ── Credit card list (card-style rows) ── */
+.cc-list { display: flex; flex-direction: column; gap: 1px; background: #1e1e28; border-radius: 12px; overflow: hidden; border: 1px solid #1e1e28; margin-bottom: 10px; }
+
+.cc-item {
+background: #14141c;
+padding: 0;
+transition: background 0.15s;
 }
+.cc-item:hover { background: #16161e; }
+.cc-item.is-paid { opacity: 0.45; }
+.cc-item.is-paid .paid-col { opacity: 1; }
+
+/* Row 1: checkbox · name · delete */
+.cc-row1 {
+display: flex; align-items: center;
+padding: 10px 12px 4px 10px;
+gap: 10px;
+}
+.cc-row1 .card-name-block { flex: 1; display: flex; align-items: center; gap: 8px; min-width: 0; }
+.color-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.card-label { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Row 2: stmt · due · amount */
+.cc-row2 {
+display: flex; align-items: center;
+padding: 2px 12px 10px 38px;
+gap: 0;
+}
+.info-chip {
+display: flex; align-items: center; gap: 3px;
+font-size: 11px; color: #555;
+margin-right: 10px;
+}
+.info-chip .day-num { color: #e8c97e; font-family: ‘DM Mono’, monospace; font-size: 12px; }
+.chip-label { color: #3a3a48; font-size: 10px; }
+.cc-row2 .amount-block { margin-left: auto; }
+
+/* Paid checkbox */
+.paid-btn {
+width: 28px; height: 28px; flex-shrink: 0;
+display: flex; align-items: center; justify-content: center;
+cursor: pointer; border-radius: 6px; transition: background 0.15s;
+}
+.paid-btn:hover { background: #252530; }
+.paid-check {
+width: 20px; height: 20px; border-radius: 5px;
+border: 2px solid #2a2a38;
+display: flex; align-items: center; justify-content: center;
+font-size: 11px; font-weight: 700; transition: all 0.18s;
+}
+.paid-check.done { background: #27AE60; border-color: #27AE60; color: #fff; }
+
+/* Delete btn */
+.del-btn {
+opacity: 0; color: #3a3a48; font-size: 12px;
+transition: opacity 0.15s; padding: 4px; border-radius: 4px; flex-shrink: 0;
+}
+.cc-item:hover .del-btn { opacity: 1; }
+.del-btn:hover { color: #e05c5c; }
+
+/* Amount inline */
+.amount-inner {
+display: flex; align-items: center; justify-content: flex-end;
+min-width: 80px; height: 28px; padding: 0 8px;
+border-radius: 6px; cursor: pointer; transition: background 0.15s;
+}
+.amount-inner:hover { background: #1e1e28; }
+.amount-inner.editing { background: #1e1e28; }
+.amount-text { font-family: ‘DM Mono’, monospace; font-size: 14px; font-weight: 500; }
+.amount-text.has-val { color: #f0ede6; }
+.amount-text.empty { color: #252530; }
+.amount-input {
+background: transparent; border: none;
+color: #f0ede6; font-family: ‘DM Mono’, monospace;
+font-size: 14px; width: 80px; text-align: right;
+}
+
+/* ── Investment table ── */
+.table-wrap { background: #14141c; border: 1px solid #1e1e28; border-radius: 12px; overflow: hidden; margin-bottom: 10px; }
 table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.inv-table col:nth-child(1) { width: 44px; }
+.inv-table col:nth-child(2) { width: auto; }
+.inv-table col:nth-child(3) { width: 76px; }
+.inv-table col:nth-child(4) { width: 96px; }
+.inv-table col:nth-child(5) { width: 30px; }
 th {
 padding: 8px 10px; text-align: left;
 font-size: 10px; color: #555; font-weight: 500;
@@ -94,80 +174,48 @@ th.right { text-align: right; }
 td { border-bottom: 1px solid #1a1a22; }
 tr:last-child td { border-bottom: none; }
 tr:hover .delete-btn { opacity: 1; }
-
-/* Card table columns */
-.cc-table col:nth-child(1) { width: 48px; }
-.cc-table col:nth-child(2) { width: auto; }
-.cc-table col:nth-child(3) { width: 66px; }
-.cc-table col:nth-child(4) { width: 66px; }
-.cc-table col:nth-child(5) { width: 104px; }
-.cc-table col:nth-child(6) { width: 32px; }
-
-/* Invest table columns */
-.inv-table col:nth-child(1) { width: 48px; }
-.inv-table col:nth-child(2) { width: auto; }
-.inv-table col:nth-child(3) { width: 80px; }
-.inv-table col:nth-child(4) { width: 104px; }
-.inv-table col:nth-child(5) { width: 32px; }
-
 .td-pad { padding: 9px 10px; }
-.card-name { display: flex; align-items: center; gap: 7px; }
-.color-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-.card-label { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.day-text { font-size: 11px; color: #666; }
-.day-num { color: #e8c97e; font-family: ‘DM Mono’, monospace; }
-
+.day-text { font-size: 11px; color: #555; }
+.day-num2 { color: #e8c97e; font-family: ‘DM Mono’, monospace; }
+.inv-name { display: flex; align-items: center; gap: 7px; }
+.inv-label { font-size: 13px; font-weight: 500; }
 .paid-cell { padding: 0; text-align: center; }
-.paid-btn {
-width: 100%; height: 40px;
+.paid-btn2 {
+width: 100%; height: 38px;
 display: flex; align-items: center; justify-content: center;
 cursor: pointer; transition: background 0.15s;
 }
-.paid-btn:hover { background: #1a1a22; }
-.paid-check {
-width: 20px; height: 20px; border-radius: 5px;
-border: 2px solid #2a2a38;
-display: flex; align-items: center; justify-content: center;
-transition: all 0.18s; font-size: 11px; font-weight: 700;
-}
-.paid-check.done { background: #27AE60; border-color: #27AE60; color: #fff; }
+.paid-btn2:hover { background: #1a1a22; }
 tr.is-paid td { opacity: 0.4; }
 tr.is-paid .paid-cell { opacity: 1; }
-
 .amount-cell { padding: 3px 5px; }
-.amount-inner {
+.inv-amount-inner {
 background: transparent; transition: background 0.15s;
-border-radius: 6px; cursor: pointer; height: 34px;
+border-radius: 6px; cursor: pointer; height: 32px;
 display: flex; align-items: center; justify-content: flex-end; padding: 0 8px;
 }
-.amount-inner:hover { background: #1e1e28; }
-.amount-inner.editing { background: #1e1e28; }
-.amount-text { font-family: ‘DM Mono’, monospace; font-size: 13px; }
-.amount-text.has-val { color: #f0ede6; font-weight: 500; }
-.amount-text.empty { color: #252530; }
-.amount-input {
-background: transparent; border: none;
-color: #f0ede6; font-family: ‘DM Mono’, monospace;
-font-size: 13px; width: 100%; text-align: right;
-}
+.inv-amount-inner:hover { background: #1e1e28; }
+.inv-amount-inner.editing { background: #1e1e28; }
 .delete-btn {
-opacity: 0; color: #444; font-size: 11px;
+opacity: 0; color: #3a3a48; font-size: 11px;
 transition: opacity 0.15s; padding: 3px; border-radius: 4px;
-display: block; margin: auto; width: 100%;
+display: block; margin: auto;
 }
 .delete-btn:hover { color: #e05c5c; }
 .delete-td { padding: 3px 4px; text-align: center; }
 
-.add-row { display: flex; gap: 10px; margin-top: 10px; }
+/* ── Add buttons ── */
+.add-row { display: flex; gap: 8px; margin-top: 10px; }
 .add-btn {
-flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
-padding: 8px 14px; border-radius: 20px;
-border: 1px dashed #252530; color: #444; font-size: 12px; transition: all 0.2s;
+flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px;
+padding: 8px 12px; border-radius: 20px;
+border: 1px dashed #252530; color: #3a3a48; font-size: 12px; transition: all 0.2s;
 }
 .add-btn:hover { color: #e8c97e; border-color: rgba(232,201,126,0.3); }
 .add-btn.invest:hover { color: #5ba8e0; border-color: rgba(91,168,224,0.3); }
 .hint { text-align: center; font-size: 10px; color: #252530; margin-top: 8px; }
 
+/* ── Modals ── */
 .modal-overlay {
 display: none; position: fixed; inset: 0;
 background: rgba(0,0,0,0.75); z-index: 100;
@@ -177,7 +225,7 @@ backdrop-filter: blur(4px);
 .modal-overlay.open { display: flex; }
 .modal-box {
 background: #1a1a22; border: 1px solid #2a2a34;
-border-radius: 16px; padding: 24px; width: 310px;
+border-radius: 16px; padding: 22px; width: 300px;
 animation: fadeIn 0.2s ease; max-height: 90vh; overflow-y: auto;
 }
 .modal-title { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
@@ -186,54 +234,39 @@ animation: fadeIn 0.2s ease; max-height: 90vh; overflow-y: auto;
 width: 100%; background: #0f0f16; border: 1px solid #2a2a34;
 border-radius: 8px; padding: 9px 12px; color: #e8e6e0;
 font-size: 14px; font-family: ‘Noto Sans TC’, sans-serif;
-transition: border-color 0.2s; margin-bottom: 13px;
+transition: border-color 0.2s; margin-bottom: 12px;
 }
 .field-input:focus { border-color: #e8c97e; }
 .color-picker { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; margin-bottom: 16px; }
-.color-swatch {
-width: 24px; height: 24px; border-radius: 50%; cursor: pointer;
-border: 2px solid transparent; transition: all 0.15s;
-}
+.color-swatch { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all 0.15s; }
 .color-swatch.selected { border-color: #fff; outline: 2px solid currentColor; outline-offset: 2px; }
 .modal-btns { display: flex; gap: 10px; }
-.btn-cancel {
-flex: 1; padding: 10px; border-radius: 10px;
-background: #1e1e28; color: #888; font-size: 13px;
-}
-.btn-confirm {
-flex: 1; padding: 10px; border-radius: 10px;
-background: linear-gradient(135deg, #e8c97e, #c9a84c);
-color: #0f0f13; font-size: 13px; font-weight: 700;
-}
+.btn-cancel { flex: 1; padding: 10px; border-radius: 10px; background: #1e1e28; color: #888; font-size: 13px; }
+.btn-confirm { flex: 1; padding: 10px; border-radius: 10px; background: linear-gradient(135deg, #e8c97e, #c9a84c); color: #0f0f13; font-size: 13px; font-weight: 700; }
 .btn-confirm.invest-confirm { background: linear-gradient(135deg, #5ba8e0, #2e86c1); color: #fff; }
 
 .confirm-dialog {
 display: none; position: fixed; inset: 0;
 background: rgba(0,0,0,0.75); z-index: 200;
-align-items: center; justify-content: center;
-backdrop-filter: blur(4px);
+align-items: center; justify-content: center; backdrop-filter: blur(4px);
 }
 .confirm-dialog.open { display: flex; }
-.confirm-box {
-background: #1a1a22; border: 1px solid #2a2a34;
-border-radius: 16px; padding: 24px; width: 280px;
-text-align: center; animation: fadeIn 0.2s ease;
-}
-.confirm-box p { font-size: 14px; margin-bottom: 18px; color: #ccc; line-height: 1.6; }
+.confirm-box { background: #1a1a22; border: 1px solid #2a2a34; border-radius: 16px; padding: 22px; width: 270px; text-align: center; animation: fadeIn 0.2s ease; }
+.confirm-box p { font-size: 13px; margin-bottom: 16px; color: #ccc; line-height: 1.6; }
 .confirm-btns { display: flex; gap: 10px; }
 
+/* Annual */
 .annual-current { background: #1a1a24; }
 .annual-foot { border-top: 1px solid #252530; background: #0f0f16; }
 #annual-table { table-layout: auto; }
 
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(8px); }
-to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 </style>
 
 </head>
 <body>
+
+<!-- Header -->
 
 <div class="header">
   <div class="logo">
@@ -251,7 +284,7 @@ to { opacity: 1; transform: translateY(0); }
 
 <div class="content">
 
-  <!-- MONTHLY -->
+  <!-- ===== MONTHLY ===== -->
 
   <div id="view-monthly">
     <div class="month-nav">
@@ -284,27 +317,14 @@ to { opacity: 1; transform: translateY(0); }
   </div>
 </div>
 
+<!-- Credit card section -->
 <div class="section-header">
   <span style="font-size:13px">💳</span>
   <span class="section-title">信用卡帳單</span>
 </div>
-<div class="table-wrap">
-  <table class="cc-table">
-    <colgroup><col><col><col><col><col><col></colgroup>
-    <thead>
-      <tr>
-        <th class="center">繳款</th>
-        <th>卡別</th>
-        <th class="center">結帳</th>
-        <th class="center">截止</th>
-        <th class="right">金額</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="card-tbody"></tbody>
-  </table>
-</div>
+<div class="cc-list" id="cc-list"></div>
 
+<!-- Investment section -->
 <div class="section-header">
   <span style="font-size:13px">📈</span>
   <span class="section-title">證券定期定額</span>
@@ -329,12 +349,12 @@ to { opacity: 1; transform: translateY(0); }
   <button class="add-btn" onclick="openAddModal('card')">＋ 新增信用卡</button>
   <button class="add-btn invest" onclick="openAddModal('invest')">＋ 新增定期定額</button>
 </div>
-<div class="hint">點擊金額欄位輸入 · 點擊繳款格切換狀態</div>
+<div class="hint">點擊金額輸入 · 點擊方框切換繳款狀態</div>
 ```
 
   </div>
 
-  <!-- ANNUAL -->
+  <!-- ===== ANNUAL ===== -->
 
   <div id="view-annual" style="display:none">
     <div class="month-nav">
@@ -414,23 +434,19 @@ let activeTab = 'monthly', selectedColor = COLORS[4], modalType = 'card', delete
 function load() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const s = JSON.parse(raw);
-      state = { records:{}, paid:{}, invRecords:{}, invPaid:{}, investments:[], ...s };
-    }
+    if (raw) state = { records:{}, paid:{}, invRecords:{}, invPaid:{}, investments:[], ...JSON.parse(raw) };
   } catch(e) {}
 }
 function save() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {} }
 
-const cardKey   = (y,m,id) => `c-${y}-${m+1}-${id}`;
-const paidKey   = (y,m,id) => `p-${y}-${m+1}-${id}`;
-const invKey    = (y,m,id) => `i-${y}-${m+1}-${id}`;
-const invPaidKey= (y,m,id) => `ip-${y}-${m+1}-${id}`;
-
-const getAmt    = (y,m,id) => state.records[cardKey(y,m,id)] || 0;
-const isPaid    = (y,m,id) => !!state.paid[paidKey(y,m,id)];
-const getInvAmt = (y,m,id) => state.invRecords[invKey(y,m,id)] || 0;
-const isInvPaid = (y,m,id) => !!state.invPaid[invPaidKey(y,m,id)];
+const cardKey    = (y,m,id) => `c-${y}-${m+1}-${id}`;
+const paidKey    = (y,m,id) => `p-${y}-${m+1}-${id}`;
+const invKey     = (y,m,id) => `i-${y}-${m+1}-${id}`;
+const invPaidKey = (y,m,id) => `ip-${y}-${m+1}-${id}`;
+const getAmt     = (y,m,id) => state.records[cardKey(y,m,id)] || 0;
+const isPaid     = (y,m,id) => !!state.paid[paidKey(y,m,id)];
+const getInvAmt  = (y,m,id) => state.invRecords[invKey(y,m,id)] || 0;
+const isInvPaid  = (y,m,id) => !!state.invPaid[invPaidKey(y,m,id)];
 const fmt = n => Number(n).toLocaleString('zh-TW');
 const parseAmt = s => parseInt(String(s).replace(/[^0-9]/g,''),10)||0;
 
@@ -442,110 +458,161 @@ function switchTab(tab) {
     b.classList.toggle('active',(i===0&&tab==='monthly')||(i===1&&tab==='annual')));
   render();
 }
-
 function prevMonth(){ if(selectedMonth===0){selectedMonth=11;selectedYear--;}else selectedMonth--; render(); }
 function nextMonth(){ if(selectedMonth===11){selectedMonth=0;selectedYear++;}else selectedMonth++; render(); }
 function prevYear(){ selectedYear--; render(); }
 function nextYear(){ selectedYear++; render(); }
 
-function togglePaid(id){ const k=paidKey(selectedYear,selectedMonth,id); state.paid[k]=!state.paid[k]; save(); render(); }
-function toggleInvPaid(id){ const k=invPaidKey(selectedYear,selectedMonth,id); state.invPaid[k]=!state.invPaid[k]; save(); render(); }
+function togglePaid(id) {
+  const k=paidKey(selectedYear,selectedMonth,id);
+  state.paid[k]=!state.paid[k]; save(); renderMonthly();
+}
+function toggleInvPaid(id) {
+  const k=invPaidKey(selectedYear,selectedMonth,id);
+  state.invPaid[k]=!state.invPaid[k]; save(); renderMonthly();
+}
 
 function renderMonthly() {
   document.getElementById('month-label').textContent = MONTHS[selectedMonth];
   document.getElementById('year-label-m').textContent = selectedYear;
   document.getElementById('year-label-nav').textContent = selectedYear;
 
-  let cardTotal=0, cardPaid=0;
-  const cardTbody = document.getElementById('card-tbody');
-  cardTbody.innerHTML = '';
-  state.cards.forEach(card => {
-    const amt = getAmt(selectedYear,selectedMonth,card.id);
-    const paid = isPaid(selectedYear,selectedMonth,card.id);
-    cardTotal += amt; if(paid) cardPaid++;
-    const tr = document.createElement('tr');
-    if(paid) tr.classList.add('is-paid');
-    tr.innerHTML = `
-      <td class="paid-cell">
+  // ── Credit cards ──
+  let cardTotal=0, cardPaidCnt=0;
+  const ccList = document.getElementById('cc-list');
+  ccList.innerHTML = '';
+
+  if (state.cards.length === 0) {
+    ccList.innerHTML = `<div style="padding:16px;text-align:center;color:#2e2e38;font-size:12px;background:#14141c">尚未新增信用卡</div>`;
+  } else {
+    state.cards.forEach(card => {
+      const amt = getAmt(selectedYear,selectedMonth,card.id);
+      const paid = isPaid(selectedYear,selectedMonth,card.id);
+      cardTotal += amt; if(paid) cardPaidCnt++;
+
+      const item = document.createElement('div');
+      item.className = 'cc-item' + (paid?' is-paid':'');
+
+      // Row 1: checkbox · name · delete
+      const row1 = document.createElement('div');
+      row1.className = 'cc-row1';
+      row1.innerHTML = `
         <div class="paid-btn" onclick="togglePaid(${card.id})">
           <div class="paid-check ${paid?'done':''}">${paid?'✓':''}</div>
         </div>
-      </td>
-      <td class="td-pad">
-        <div class="card-name">
+        <div class="card-name-block">
           <div class="color-dot" style="background:${card.color}"></div>
           <span class="card-label">${card.name}</span>
         </div>
-      </td>
-      <td class="td-pad" style="text-align:center"><span class="day-text"><span class="day-num">${card.statementDay}</span>號</span></td>
-      <td class="td-pad" style="text-align:center"><span class="day-text"><span class="day-num">${card.dueDay}</span>號前</span></td>
-      <td class="amount-cell">
-        <div class="amount-inner" onclick="startEdit('card',${card.id},this)">
-          <span class="amount-text ${amt>0?'has-val':'empty'}">${amt>0?'$'+fmt(amt):'—'}</span>
-        </div>
-      </td>
-      <td class="delete-td"><button class="delete-btn" onclick="askDelete('card',${card.id},'${card.name}')">✕</button></td>`;
-    cardTbody.appendChild(tr);
-  });
-  document.getElementById('card-total').textContent = '$'+fmt(cardTotal);
-  document.getElementById('card-paid-status').textContent = state.cards.length ? `已繳 ${cardPaid} / ${state.cards.length} 張` : '尚未新增';
+        <button class="del-btn" onclick="askDelete('card',${card.id},'${card.name}')">✕</button>
+      `;
 
-  let invTotal=0, invPaid=0;
+      // Row 2: stmt · due · amount
+      const row2 = document.createElement('div');
+      row2.className = 'cc-row2';
+      row2.innerHTML = `
+        <div class="info-chip">
+          <span class="chip-label">結帳</span>
+          <span class="day-num">${card.statementDay}</span>
+          <span class="chip-label">號</span>
+        </div>
+        <div class="info-chip">
+          <span class="chip-label">繳費</span>
+          <span class="day-num">${card.dueDay}</span>
+          <span class="chip-label">號前</span>
+        </div>
+        <div class="amount-block">
+          <div class="amount-inner" onclick="startCardEdit(${card.id},this)">
+            <span class="amount-text ${amt>0?'has-val':'empty'}" id="card-amt-${card.id}">
+              ${amt>0?'$'+fmt(amt):'—'}
+            </span>
+          </div>
+        </div>
+      `;
+
+      item.appendChild(row1);
+      item.appendChild(row2);
+      ccList.appendChild(item);
+    });
+  }
+
+  document.getElementById('card-total').textContent = '$'+fmt(cardTotal);
+  document.getElementById('card-paid-status').textContent =
+    state.cards.length ? `已繳 ${cardPaidCnt} / ${state.cards.length} 張` : '尚未新增';
+
+  // ── Investments ──
+  let invTotal=0, invPaidCnt=0;
   const invTbody = document.getElementById('invest-tbody');
   invTbody.innerHTML = '';
-  if(!state.investments.length) {
-    invTbody.innerHTML = `<tr><td colspan="5" style="padding:14px;text-align:center;color:#2e2e38;font-size:12px">尚未新增定期定額項目</td></tr>`;
+
+  if (!state.investments.length) {
+    invTbody.innerHTML = `<tr><td colspan="5" style="padding:14px;text-align:center;color:#2e2e38;font-size:12px">尚未新增定期定額</td></tr>`;
   } else {
     state.investments.forEach(inv => {
       const amt = getInvAmt(selectedYear,selectedMonth,inv.id);
       const paid = isInvPaid(selectedYear,selectedMonth,inv.id);
-      invTotal += amt; if(paid) invPaid++;
+      invTotal += amt; if(paid) invPaidCnt++;
       const tr = document.createElement('tr');
       if(paid) tr.classList.add('is-paid');
       tr.innerHTML = `
         <td class="paid-cell">
-          <div class="paid-btn" onclick="toggleInvPaid(${inv.id})">
+          <div class="paid-btn2" onclick="toggleInvPaid(${inv.id})">
             <div class="paid-check ${paid?'done':''}">${paid?'✓':''}</div>
           </div>
         </td>
         <td class="td-pad">
-          <div class="card-name">
+          <div class="inv-name">
             <div class="color-dot" style="background:${inv.color}"></div>
-            <span class="card-label">${inv.name}</span>
+            <span class="inv-label">${inv.name}</span>
           </div>
         </td>
-        <td class="td-pad" style="text-align:center"><span class="day-text">每月 <span class="day-num">${inv.deductDay}</span> 號</span></td>
+        <td class="td-pad" style="text-align:center">
+          <span class="day-text">每月 <span class="day-num2">${inv.deductDay}</span> 號</span>
+        </td>
         <td class="amount-cell">
-          <div class="amount-inner" onclick="startEdit('invest',${inv.id},this)">
+          <div class="inv-amount-inner" onclick="startInvEdit(${inv.id},this)">
             <span class="amount-text ${amt>0?'has-val':'empty'}">${amt>0?'$'+fmt(amt):'—'}</span>
           </div>
         </td>
-        <td class="delete-td"><button class="delete-btn" onclick="askDelete('invest',${inv.id},'${inv.name}')">✕</button></td>`;
+        <td class="delete-td"><button class="delete-btn" onclick="askDelete('invest',${inv.id},'${inv.name}')">✕</button></td>
+      `;
       invTbody.appendChild(tr);
     });
   }
+
   document.getElementById('invest-total').textContent = '$'+fmt(invTotal);
-  document.getElementById('invest-paid-status').textContent = state.investments.length ? `已扣 ${invPaid} / ${state.investments.length} 項` : '尚未新增';
+  document.getElementById('invest-paid-status').textContent =
+    state.investments.length ? `已扣 ${invPaidCnt} / ${state.investments.length} 項` : '尚未新增';
 }
 
-function startEdit(type, id, cell) {
+function startCardEdit(id, cell) {
   if(cell.querySelector('input')) return;
-  const amt = type==='card' ? getAmt(selectedYear,selectedMonth,id) : getInvAmt(selectedYear,selectedMonth,id);
+  const amt = getAmt(selectedYear,selectedMonth,id);
   cell.classList.add('editing');
   cell.innerHTML = `<input class="amount-input" type="number" placeholder="0" value="${amt||''}">`;
   const inp = cell.querySelector('input');
   inp.focus(); inp.select();
   function commit() {
-    const v = parseAmt(inp.value);
-    if(type==='card') state.records[cardKey(selectedYear,selectedMonth,id)] = v;
-    else state.invRecords[invKey(selectedYear,selectedMonth,id)] = v;
+    state.records[cardKey(selectedYear,selectedMonth,id)] = parseAmt(inp.value);
     save(); renderMonthly();
   }
   inp.addEventListener('blur', commit);
-  inp.addEventListener('keydown', e => {
-    if(e.key==='Enter') inp.blur();
-    if(e.key==='Escape') { inp.removeEventListener('blur',commit); renderMonthly(); }
-  });
+  inp.addEventListener('keydown', e => { if(e.key==='Enter') inp.blur(); if(e.key==='Escape'){inp.removeEventListener('blur',commit);renderMonthly();} });
+}
+
+function startInvEdit(id, cell) {
+  if(cell.querySelector('input')) return;
+  const amt = getInvAmt(selectedYear,selectedMonth,id);
+  cell.classList.add('editing');
+  cell.innerHTML = `<input class="amount-input" type="number" placeholder="0" value="${amt||''}">`;
+  const inp = cell.querySelector('input');
+  inp.focus(); inp.select();
+  function commit() {
+    state.invRecords[invKey(selectedYear,selectedMonth,id)] = parseAmt(inp.value);
+    save(); renderMonthly();
+  }
+  inp.addEventListener('blur', commit);
+  inp.addEventListener('keydown', e => { if(e.key==='Enter') inp.blur(); if(e.key==='Escape'){inp.removeEventListener('blur',commit);renderMonthly();} });
 }
 
 function renderAnnual() {
@@ -581,13 +648,13 @@ function renderAnnual() {
 
 function render() { if(activeTab==='monthly') renderMonthly(); else renderAnnual(); }
 
+// ── Modal ──
 function openAddModal(type) {
   modalType = type;
-  document.getElementById('modal-title').textContent = type==='card' ? '新增信用卡' : '新增定期定額';
+  document.getElementById('modal-title').textContent = type==='card'?'新增信用卡':'新增定期定額';
   document.getElementById('card-fields').style.display = type==='card'?'':'none';
   document.getElementById('invest-fields').style.display = type==='invest'?'':'none';
-  const btn = document.getElementById('modal-confirm-btn');
-  btn.className = 'btn-confirm'+(type==='invest'?' invest-confirm':'');
+  document.getElementById('modal-confirm-btn').className = 'btn-confirm'+(type==='invest'?' invest-confirm':'');
   if(type==='card'){ document.getElementById('new-name').value=''; document.getElementById('new-statement').value=''; document.getElementById('new-due').value=''; selectedColor=COLORS[4]; }
   else { document.getElementById('new-inv-name').value=''; document.getElementById('new-inv-day').value=''; selectedColor=INV_COLORS[0]; }
   renderColorPicker();
@@ -595,9 +662,8 @@ function openAddModal(type) {
   setTimeout(()=>{ (type==='card'?document.getElementById('new-name'):document.getElementById('new-inv-name')).focus(); },100);
 }
 function closeAddModal() { document.getElementById('add-modal').classList.remove('open'); }
-
 function renderColorPicker() {
-  const colors = modalType==='invest' ? INV_COLORS : COLORS;
+  const colors = modalType==='invest'?INV_COLORS:COLORS;
   const picker = document.getElementById('color-picker');
   picker.innerHTML = '';
   colors.forEach(col => {
@@ -608,7 +674,6 @@ function renderColorPicker() {
     picker.appendChild(d);
   });
 }
-
 function addItem() {
   if(modalType==='card') {
     const name = document.getElementById('new-name').value.trim();
@@ -621,9 +686,9 @@ function addItem() {
   }
   save(); closeAddModal(); render();
 }
-
 document.getElementById('add-modal').addEventListener('click',function(e){ if(e.target===this) closeAddModal(); });
 
+// ── Delete ──
 function askDelete(type,id,name) {
   deleteTarget={type,id};
   document.getElementById('confirm-msg').textContent = `確定要刪除「${name}」嗎？所有記錄將一併刪除。`;
